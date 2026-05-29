@@ -5,10 +5,10 @@
   "scripts": {
     "test": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test",
     "test:headed": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test --headed",
-    "test:auth": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test tests/authentication/",
-    "test:pim": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test tests/employeeManagement/",
-    "test:leave": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test tests/leaveManagement/",
-    "test:recruitment": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test tests/recruitment/",
+    "test:auth": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test --project=authentication",
+    "test:pim": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test tests/employeeManagement/ --project=chromium",
+    "test:leave": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test tests/leaveManagement/ --project=chromium",
+    "test:recruitment": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test tests/recruitment/ --project=chromium",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:report": "npm run allure:generate && npm run allure:open"

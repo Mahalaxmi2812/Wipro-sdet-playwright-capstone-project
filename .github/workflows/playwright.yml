@@ -40,7 +40,7 @@ jobs:
         run: npx playwright install chromium
 
       - name: Run Playwright tests
-        run: npx playwright test --project=chromium
+        run: npx playwright test
         continue-on-error: true    # demo site flakiness shouldn't block report generation
 
       - name: Set up Java (required by allure-commandline)
