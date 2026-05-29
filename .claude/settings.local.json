@@ -11,7 +11,11 @@
       "Bash(git -C /mnt/d/Wipro-sdet-playwright-capstone-project add .github/workflows/playwright.yml)",
       "Bash(git -C /mnt/d/Wipro-sdet-playwright-capstone-project commit -m \"Fix CI: explicitly install Chromium system dependencies on Ubuntu\")",
       "Bash(git -C /mnt/d/Wipro-sdet-playwright-capstone-project add tests/auth.setup.js fixtures/testFixtures.js playwright.config.js package.json .github/workflows/playwright.yml)",
-      "Bash(git -C /mnt/d/Wipro-sdet-playwright-capstone-project commit -m 'Fix: login once via storageState instead of per-test login *)"
+      "Bash(git -C /mnt/d/Wipro-sdet-playwright-capstone-project commit -m 'Fix: login once via storageState instead of per-test login *)",
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }
