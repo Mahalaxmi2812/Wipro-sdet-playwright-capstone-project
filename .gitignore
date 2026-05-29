@@ -10,6 +10,5 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 
-# Allure
+# Allure raw results (large, regenerated each run)
 /allure-results/
-/allure-report/
