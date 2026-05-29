@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ main, master ]
 
-# Required for GitHub Pages deployment
 permissions:
   contents: read
   pages: write
@@ -30,8 +29,23 @@ jobs:
       - name: Install Playwright browsers and system dependencies
         run: npx playwright install --with-deps chromium
 
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Clean allure-results before run
+        run: rm -rf allure-results
+
+      - name: Run Authentication tests
+        run: npx playwright test --project=authentication
+        continue-on-error: true
+
+      - name: Run Employee Management tests
+        run: npx playwright test tests/employeeManagement/ --project=chromium
+        continue-on-error: true
+
+      - name: Run Leave Management tests
+        run: npx playwright test tests/leaveManagement/ --project=chromium
+        continue-on-error: true
+
+      - name: Run Recruitment tests
+        run: npx playwright test tests/recruitment/ --project=chromium
         continue-on-error: true
 
       - name: Set up Java (required by allure-commandline)
