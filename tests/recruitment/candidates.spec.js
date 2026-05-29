@@ -27,6 +27,7 @@ test.describe('Module 4: Recruitment - Candidates', () => {
   test('TC-09 | Candidates table displays Candidate, Vacancy, Hiring Manager and Status columns', async ({ recruitmentPage, page }) => {
     await recruitmentPage.gotoCandidates();
     const headers = page.locator('.oxd-table-header-cell');
+    await expect(headers.first()).toBeVisible({ timeout: 15000 });
     await expect(headers.filter({ hasText: 'Candidate' })).toBeVisible();
     await expect(headers.filter({ hasText: 'Vacancy' })).toBeVisible();
     await expect(headers.filter({ hasText: 'Hiring Manager' })).toBeVisible();

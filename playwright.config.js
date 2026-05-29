@@ -6,6 +6,7 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 
 export default defineConfig({
   testDir: './tests',
+  globalSetup: './global-setup.js',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 1,
@@ -23,28 +24,21 @@ export default defineConfig({
   timeout: 60000,
 
   projects: [
-    // ── 1. Login once and save session ────────────────────────────────────────
-    {
-      name: 'setup',
-      testMatch: /auth\.setup\.js/,
-    },
-
-    // ── 2. Auth tests — NO storageState (they test login/logout behaviour) ───
+    // ── 1. Auth tests — NO storageState (they test login/logout behaviour) ───
     {
       name: 'authentication',
       testMatch: /tests\/authentication\/.*/,
       use: { ...devices['Desktop Chrome'] },
     },
 
-    // ── 3. Module tests — reuse saved session (no repeated logins) ───────────
+    // ── 2. Module tests — reuse saved session from globalSetup ───────────────
     {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
         storageState: 'playwright/.auth/user.json',
       },
-      dependencies: ['setup'],
-      testIgnore: [/auth\.setup\.js/, /tests\/authentication\/.*/],
+      testIgnore: /tests\/authentication\/.*/,
     },
   ],
 });

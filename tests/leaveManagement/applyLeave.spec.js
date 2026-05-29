@@ -46,6 +46,7 @@ test.describe('Module 3: Leave Management - Leave Requests', () => {
   test('TC-05 | Leave List table displays Leave Date, Leave Type and Status columns', async ({ leavePage, page }) => {
     await leavePage.gotoLeaveList();
     const headers = page.locator('.oxd-table-header-cell');
+    await expect(headers.first()).toBeVisible({ timeout: 15000 });
     await expect(headers.filter({ hasText: /Date/ })).toBeVisible();
     await expect(headers.filter({ hasText: 'Leave Type' })).toBeVisible();
     await expect(headers.filter({ hasText: 'Status' })).toBeVisible();

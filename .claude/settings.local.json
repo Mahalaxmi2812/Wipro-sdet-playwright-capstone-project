@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir D:\\\\Wipro-sdet-playwright-capstone-project *)",
+      "Bash(npx playwright *)",
+      "Read(//mnt/c/Program Files/Google/Chrome/Application/**)",
+      "Read(//mnt/c/Program Files \\(x86\\)/Google/Chrome/**)",
+      "Bash(node *)",
+      "Bash(curl -s \"https://mahalaxmi2812.github.io/Wipro-sdet-playwright-capstone-project/data/test-cases/27d8289d37b0e6e5.json\")",
+      "Bash(python3 -c ' *)",
+      "Bash(git -C /mnt/d/Wipro-sdet-playwright-capstone-project add .github/workflows/playwright.yml)",
+      "Bash(git -C /mnt/d/Wipro-sdet-playwright-capstone-project commit -m \"Fix CI: explicitly install Chromium system dependencies on Ubuntu\")",
+      "Bash(git -C /mnt/d/Wipro-sdet-playwright-capstone-project add tests/auth.setup.js fixtures/testFixtures.js playwright.config.js package.json .github/workflows/playwright.yml)",
+      "Bash(git -C /mnt/d/Wipro-sdet-playwright-capstone-project commit -m 'Fix: login once via storageState instead of per-test login *)"
+    ]
+  }
+}
