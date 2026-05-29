@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test",
+    "test": "rm -rf allure-results && LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test",
     "test:headed": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test --headed",
     "test:auth": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test --project=authentication",
     "test:pim": "LD_LIBRARY_PATH=$HOME/playwright-libs/usr/lib/x86_64-linux-gnu:$HOME/playwright-libs/usr/lib/x86_64-linux-gnu/nss playwright test tests/employeeManagement/ --project=chromium",
