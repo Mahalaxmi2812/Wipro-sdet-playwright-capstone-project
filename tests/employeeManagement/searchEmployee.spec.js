@@ -2,20 +2,21 @@ import { test, expect } from '../../fixtures/testFixtures.js';
 
 test.describe('Module 2: Employee Management - Search Employee', () => {
   // ─── C. Search ────────────────────────────────────────────────────────────
-  test('TC-08 | Searching with a non-existent employee name shows No Records Found', async ({ pimPage, page }) => {
-    await pimPage.employeeNameInput.fill('ZZNonExistent999PW');
+  test('TC-08 | Searching with a non-existent Employee ID returns zero table rows', async ({ pimPage, page }) => {
+    // Employee Id is a plain text input — avoids autocomplete-filter issues
+    await pimPage.employeeIdSearchInput.fill('999999999');
     await pimPage.searchButton.click();
-    await page.waitForLoadState('networkidle');
-    await expect(pimPage.noRecordsText).toBeVisible();
+    // OrangeHRM renders an empty table body (no "No Records Found" text element)
+    await expect(pimPage.tableRows).toHaveCount(0, { timeout: 10000 });
   });
 
-  test('TC-09 | Reset button clears the employee name search field', async ({ pimPage }) => {
-    await pimPage.employeeNameInput.fill('SomeEmployee');
+  test('TC-09 | Reset button clears the Employee Id search field', async ({ pimPage }) => {
+    await pimPage.employeeIdSearchInput.fill('12345');
     await pimPage.resetButton.click();
-    await expect(pimPage.employeeNameInput).toHaveValue('');
+    await expect(pimPage.employeeIdSearchInput).toHaveValue('');
   });
 
-  test('TC-10 | Default Search returns a records count label', async ({ pimPage, page }) => {
+  test('TC-10 | Default Search returns employees and shows a records count label', async ({ pimPage, page }) => {
     await pimPage.searchButton.click();
     await expect(pimPage.tableRows.first()).toBeVisible({ timeout: 15000 });
     const countLabel = page.locator('span').filter({ hasText: /Records/ });

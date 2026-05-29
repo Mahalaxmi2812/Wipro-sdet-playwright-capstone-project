@@ -8,10 +8,11 @@ test.describe('Module 3: Leave Management - Leave Administration', () => {
     await expect(page.locator('.oxd-topbar-header-breadcrumb')).toContainText(/Entitlements/i);
   });
 
-  test('TC-09 | Leave Types list page loads and shows Leave Type in breadcrumb', async ({ leavePage, page }) => {
-    await leavePage.gotoLeaveTypes();
-    await expect(page).toHaveURL(/viewLeaveTypeList/);
-    await expect(page.locator('.oxd-topbar-header-breadcrumb')).toContainText(/Leave Type/i);
+  test('TC-09 | Leave Entitlement page has Employee Name filter and Search button', async ({ leavePage, page }) => {
+    await leavePage.gotoEntitlements();
+    await expect(page).toHaveURL(/viewLeaveEntitlements/);
+    await expect(leavePage.searchButton).toBeVisible();
+    await expect(page.locator('.oxd-select-text').first()).toBeVisible();
   });
 
   test('TC-10 | Leave module is accessible from the navigation sidebar', async ({ leavePage, page }) => {

@@ -16,22 +16,22 @@ export class LeavePage {
   }
 
   async gotoApplyLeave() {
-    await this.page.goto('/web/index.php/leave/takeLeave', { waitUntil: 'networkidle' });
+    await this.page.goto('/web/index.php/leave/takeLeave', { waitUntil: 'domcontentloaded' });
   }
 
   async gotoMyLeave() {
-    await this.page.goto('/web/index.php/leave/viewMyLeaveList', { waitUntil: 'networkidle' });
+    await this.page.goto('/web/index.php/leave/viewMyLeaveList', { waitUntil: 'domcontentloaded' });
   }
 
   async gotoLeaveList() {
-    await this.page.goto('/web/index.php/leave/viewLeaveList', { waitUntil: 'networkidle' });
+    await this.page.goto('/web/index.php/leave/viewLeaveList', { waitUntil: 'domcontentloaded' });
   }
 
   async gotoEntitlements() {
-    await this.page.goto('/web/index.php/leave/viewLeaveEntitlements', { waitUntil: 'networkidle' });
+    await this.page.goto('/web/index.php/leave/viewLeaveEntitlements', { waitUntil: 'domcontentloaded' });
   }
 
   async gotoLeaveTypes() {
-    await this.page.goto('/web/index.php/leave/viewLeaveTypeList', { waitUntil: 'networkidle' });
+    await this.page.goto('/web/index.php/leave/viewLeaveTypeList', { waitUntil: 'domcontentloaded' });
   }
 }

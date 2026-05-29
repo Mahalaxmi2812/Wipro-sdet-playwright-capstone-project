@@ -12,21 +12,17 @@ export class RecruitmentPage {
     // Add Vacancy form
     this.jobTitleDropdown = page.locator('.oxd-select-text').first();
     this.vacancyNameInput = page.locator('.oxd-input').nth(1);
+    this.hiringManagerInput = page.locator('.oxd-autocomplete-text-input input').first();
 
     // Add Candidate form
     this.firstNameInput = page.getByPlaceholder('First Name');
     this.middleNameInput = page.getByPlaceholder('Middle Name');
     this.lastNameInput = page.getByPlaceholder('Last Name');
-    // OrangeHRM email field — find by label since placeholder varies
+    // Email field uses placeholder 'Type here' — find by label instead
     this.emailInput = page
       .locator('.oxd-input-group')
-      .filter({ has: page.locator('label', { hasText: /email/i }) })
+      .filter({ has: page.locator('label', { hasText: 'Email' }) })
       .locator('input');
-  }
-
-  async gotoVacancies() {
-    await this.page.goto('/web/index.php/recruitment/viewRecruitment', { waitUntil: 'domcontentloaded' });
-    await this.page.waitForSelector('.oxd-table', { timeout: 15000 });
   }
 
   async gotoCandidates() {
@@ -35,10 +31,10 @@ export class RecruitmentPage {
   }
 
   async gotoAddVacancy() {
-    await this.page.goto('/web/index.php/recruitment/addJobVacancy', { waitUntil: 'networkidle' });
+    await this.page.goto('/web/index.php/recruitment/addJobVacancy', { waitUntil: 'domcontentloaded' });
   }
 
   async gotoAddCandidate() {
-    await this.page.goto('/web/index.php/recruitment/addCandidate', { waitUntil: 'networkidle' });
+    await this.page.goto('/web/index.php/recruitment/addCandidate', { waitUntil: 'domcontentloaded' });
   }
 }

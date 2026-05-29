@@ -21,7 +21,7 @@ test.describe('Module 3: Leave Management - Leave Requests', () => {
     await expect(fromDate).not.toHaveValue('');
   });
 
-  test('TC-03 | Leave List filter - Leave Type dropdown has selectable options', async ({ leavePage, page }) => {
+  test('TC-03 | Leave List filter - Show Leave Status dropdown has selectable options', async ({ leavePage, page }) => {
     await leavePage.gotoLeaveList();
     const leaveTypeDropdown = page.locator('.oxd-select-text').first();
     await leaveTypeDropdown.click();
@@ -32,7 +32,7 @@ test.describe('Module 3: Leave Management - Leave Requests', () => {
     await page.keyboard.press('Escape');
   });
 
-  test('TC-04 | Leave List filter - Status dropdown has selectable options', async ({ leavePage, page }) => {
+  test('TC-04 | Leave List filter - Leave Type dropdown has selectable options', async ({ leavePage, page }) => {
     await leavePage.gotoLeaveList();
     const statusDropdown = page.locator('.oxd-select-text').nth(1);
     await statusDropdown.click();
