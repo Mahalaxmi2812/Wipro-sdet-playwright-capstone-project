@@ -2,13 +2,26 @@
   "name": "wipro-sdet-playwright-capstone-project",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:auth": "playwright test tests/authentication/",
+    "test:pim": "playwright test tests/employeeManagement/",
+    "test:leave": "playwright test tests/leaveManagement/",
+    "test:recruitment": "playwright test tests/recruitment/",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:report": "npm run allure:generate && npm run allure:open"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.0"
+    "@types/node": "^25.9.0",
+    "allure-commandline": "^2.30.0",
+    "allure-playwright": "^3.0.4",
+    "dotenv": "^17.4.2"
   }
 }
